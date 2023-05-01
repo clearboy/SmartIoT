@@ -1,9 +1,8 @@
 version: '3'
 
-networks:
-  host:
-    name: host
-    external: true
+networks: 
+  network_smartedge:
+      driver:  bridge
 
 volumes:
     influxdb-data:
@@ -24,9 +23,11 @@ services:
       - ./nodered/nodered-config/settings.js:/data/settings.js
     ports:
       - "1880:1880"
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway" 
+    networks:
+      - network_smartedge
+    # network_mode: bridge
+    # extra_hosts:
+    #  - "host.docker.internal:host-gateway" 
     # network_mode: "host"
     #expose:
     #  - "1880:1880"
@@ -41,9 +42,11 @@ services:
       - INFLUXDB_DB=default
     volumes:
       - d:/SmartEdge/influxdb-data:/var/lib/influxdb
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway" 
+    networks:
+      - network_smartedge
+    # network_mode: bridge
+    # extra_hosts:
+    #  - "host.docker.internal:host-gateway" 
     ports:
       - "8086:8086"
 
@@ -53,6 +56,11 @@ services:
     volumes:
       - d:/SmartEdge/taos/data:/var/lib/taos
       - d:/SmartEdge/taos/log:/var/log/taos
+    networks:
+      - network_smartedge
+    # network_mode: bridge
+    # extra_hosts:
+    #  - "host.docker.internal:host-gateway" 
     ports:
       - 6030:6030 
       - 6041:6041 
@@ -65,9 +73,11 @@ services:
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway" 
+    networks:
+      - network_smartedge
+    # network_mode: bridge
+    # extra_hosts:
+    #  - "host.docker.internal:host-gateway" 
     ports:
       - "3000:3000"
     volumes:
@@ -102,9 +112,11 @@ services:
 #        emqx-bridge:
 #          aliases:
 #          - node2.emqx.io
-    network_mode: bridge
-    extra_hosts:
-      - "host.docker.internal:host-gateway" 
+    networks:
+      - network_smartedge
+    # network_mode: bridge
+    # extra_hosts:
+    #  - "host.docker.internal:host-gateway" 
     ports:
       - 1883:1883
       - 8083:8083
@@ -113,43 +125,3 @@ services:
       - 18083:18083
     volumes:
       - d:/SmartEdge/emqx_data:/opt/emqx/data
-
-#  jupyterlab:
-#    restart: always
-#    build: ./jupyterlab
-#    ports:
-#      - "8888:8888"
-#    volumes:
-#      - 'jupyterlab-data:/data'
-#  homeassistant:
-#    restart: always
-#    build: ./homeassistant
-#    ports:
-#      - "8123:8123" 
-#    volumes:
-#      - 'homeassistant-data:/config'
-#  rhasspy:
-#    restart: always
-#    build: ./rhasspy
-#    ports:
-#      - "12101:12101"
-#    volumes:
-#      - 'rhasspy-data:/profiles'
-#    devices:
-#      - "/dev/snd:/dev/snd"
-#    command: --user-profiles /profiles --profile en
-#  ap:
-#    build: ./ap
-#    restart: always
-#    network_mode: host
-#    privileged: true
-#    labels:
-#      io.balena.features.dbus: '1'
-#      io.balena.features.firmware: '1'
-#  bridge:
-#    restart: always
-#    build: ./bridge
-#    depends_on:
-#     - influxdb
-#     - mosquitto
-
