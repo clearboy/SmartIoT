@@ -1,0 +1,642 @@
+[
+    {
+        "id": "765f453276fe2245",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d6ec4ec759b8d683",
+        "type": "subflow",
+        "name": "涂布换型调机助手",
+        "info": "",
+        "category": "锂电池生产设备",
+        "in": [
+            {
+                "x": 50,
+                "y": 30,
+                "wires": []
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "p1",
+                "type": "str",
+                "value": ""
+            }
+        ],
+        "meta": {
+            "author": "王晓钰 <xywang@xywang.org>",
+            "license": "MIT"
+        },
+        "color": "#DDAA99",
+        "inputLabels": [
+            "x1"
+        ],
+        "status": {
+            "x": 420,
+            "y": 40,
+            "wires": []
+        }
+    },
+    {
+        "id": "7723db7308018953",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "Arial Black,Arial Black,Gadget,sans-serif",
+                "edited": false,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Arial Black,Arial Black,Gadget,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "涂布换型调机助手",
+            "hideToolbar": "false",
+            "allowSwipe": "mouse",
+            "lockMenu": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "YYYY-MM-DD",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "0e6256186b6df9da",
+        "type": "ui_group",
+        "z": "d6ec4ec759b8d683",
+        "name": "调节",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f1c21dcd5f237672",
+        "type": "ui_spacer",
+        "z": "d6ec4ec759b8d683",
+        "name": "spacer",
+        "group": "4da902525e38e148",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1f8911383690db3c",
+        "type": "ui_group",
+        "name": "仪表盘",
+        "tab": "a70c05a054ff232c",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5e8e126fe8ae5c0f",
+        "type": "ui_group",
+        "name": "状态",
+        "tab": "a70c05a054ff232c",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "54569428c989d60e",
+        "type": "ui_group",
+        "name": "曲线",
+        "tab": "a70c05a054ff232c",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "80de1577a7771f1f",
+        "type": "ui_group",
+        "name": "调节",
+        "tab": "a70c05a054ff232c",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "13da7ebad177f7b8",
+        "type": "ui_tab",
+        "name": "优化策略",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a53bfb30b0d6b99d",
+        "type": "ui_group",
+        "name": "设置",
+        "tab": "13da7ebad177f7b8",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a70c05a054ff232c",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "b80167f2b8308c02",
+        "type": "inject",
+        "z": "765f453276fe2245",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "$random()*100",
+        "payloadType": "jsonata",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "4273d87deea40b82",
+                "8c91aaa9c4295140",
+                "5ae41288ef2846c4",
+                "75dd7824cc891ac2",
+                "48104acccd4a76e0",
+                "a1d5fac88c3a6e42",
+                "ce3adaa54a01de52",
+                "5780b1074edfaa5b"
+            ]
+        ]
+    },
+    {
+        "id": "4273d87deea40b82",
+        "type": "debug",
+        "z": "765f453276fe2245",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "48104acccd4a76e0",
+        "type": "ui_text",
+        "z": "765f453276fe2245",
+        "group": "5e8e126fe8ae5c0f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "72bfa9a409177d61",
+        "type": "ui_toast",
+        "z": "765f453276fe2245",
+        "position": "bottom right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 1120,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a1d5fac88c3a6e42",
+        "type": "ui_numeric",
+        "z": "765f453276fe2245",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "5e8e126fe8ae5c0f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 680,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c91aaa9c4295140",
+        "type": "ui_gauge",
+        "z": "765f453276fe2245",
+        "name": "",
+        "group": "1f8911383690db3c",
+        "order": 3,
+        "width": 2,
+        "height": 2,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5ae41288ef2846c4",
+        "type": "ui_gauge",
+        "z": "765f453276fe2245",
+        "name": "",
+        "group": "1f8911383690db3c",
+        "order": 1,
+        "width": 2,
+        "height": 2,
+        "gtype": "compass",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "75dd7824cc891ac2",
+        "type": "ui_gauge",
+        "z": "765f453276fe2245",
+        "name": "",
+        "group": "1f8911383690db3c",
+        "order": 2,
+        "width": 2,
+        "height": 2,
+        "gtype": "wave",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b447954a4dca6293",
+        "type": "ui_chart",
+        "z": "765f453276fe2245",
+        "name": "",
+        "group": "54569428c989d60e",
+        "order": 1,
+        "width": 8,
+        "height": 3,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1470,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ce3adaa54a01de52",
+        "type": "ui_slider",
+        "z": "765f453276fe2245",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "80de1577a7771f1f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 1270,
+        "y": 620,
+        "wires": [
+            [
+                "b447954a4dca6293",
+                "ce5fead77ff88b82"
+            ]
+        ]
+    },
+    {
+        "id": "ce5fead77ff88b82",
+        "type": "ui_numeric",
+        "z": "765f453276fe2245",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "group": "a53bfb30b0d6b99d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 1280,
+        "y": 400,
+        "wires": [
+            [
+                "c95a0da63e4a1b1f"
+            ]
+        ]
+    },
+    {
+        "id": "017d11468c7a6e22",
+        "type": "ui_button",
+        "z": "765f453276fe2245",
+        "name": "",
+        "group": "80de1577a7771f1f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 1250,
+        "y": 700,
+        "wires": [
+            [
+                "b447954a4dca6293"
+            ]
+        ]
+    },
+    {
+        "id": "c95a0da63e4a1b1f",
+        "type": "ui_form",
+        "z": "765f453276fe2245",
+        "name": "",
+        "label": "",
+        "group": "a53bfb30b0d6b99d",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "参数",
+                "value": "12",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "12": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "topic",
+        "topicType": "msg",
+        "splitLayout": "",
+        "className": "",
+        "x": 1250,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8993f84adc4dea1e",
+        "type": "卷绕机：工艺优化策略",
+        "z": "765f453276fe2245",
+        "name": "卷绕机 工艺优化策略",
+        "user": "ME工程师",
+        "x": 680,
+        "y": 80,
+        "wires": [
+            [
+                "d54cc17be9f8cede"
+            ]
+        ]
+    },
+    {
+        "id": "5780b1074edfaa5b",
+        "type": "卷绕机：感知",
+        "z": "765f453276fe2245",
+        "name": "卷绕机",
+        "user": "ME工程师",
+        "x": 410,
+        "y": 80,
+        "wires": [
+            [
+                "8993f84adc4dea1e"
+            ]
+        ]
+    },
+    {
+        "id": "d54cc17be9f8cede",
+        "type": "卷绕机：调节",
+        "z": "765f453276fe2245",
+        "name": "卷绕机",
+        "user": "ME工程师",
+        "x": 930,
+        "y": 80,
+        "wires": [
+            [
+                "8c91aaa9c4295140"
+            ]
+        ]
+    }
+]

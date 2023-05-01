@@ -5,11 +5,22 @@ FROM nodered/node-red:latest
 #RUN npm install node-red-contrib-influxdb \
 #                node-red-dashboard
 #                node-red-node-serialport \
+RUN npm install @js-on/node-red-contrib-py3run \
+                @wz2b/node-red-influxdb-line-protocol \
+                node-red-node-smooth \
+                node-red-contrib-ads \
+                node-red-contrib-influxdb \
+                node-red-contrib-omron-fins \
+                node-red-contrib-pid \
+                node-red-contrib-python3-function \
+                node-red-contrib-tdengine \
+                node-red-dashboard \
+                node-red-node-pidcontrol 
 
 # Copy package.json to the WORKDIR so npm builds all
 # of your added nodes modules for Node-RED
 # COPY package.json .
-RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
+# RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 
 # Copy _your_ Node-RED project files into place
 # NOTE: This will only work if you DO NOT later mount /data as an external volume.
@@ -27,11 +38,11 @@ COPY nodered-config/theme.js node_modules/@node-red/editor-api/lib/editor/theme.
 
 
 # 默认的文件
-COPY nodered-config/atl.json /data/.
+COPY nodered-config/atl.json /data/flows.json
 
 #COPY flows_cred.json /data/flows_cred.json
 #COPY flows.json /data/flows.json
 
 # You should add extra nodes via your package.json file but you can also add them here:
-# WORKDIR /usr/src/node-red
+#WORKDIR /usr/src/node-red
 #RUN npm install node-red-node-smooth
