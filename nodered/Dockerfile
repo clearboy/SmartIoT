@@ -5,22 +5,11 @@ FROM nodered/node-red:latest
 #RUN npm install node-red-contrib-influxdb \
 #                node-red-dashboard
 #                node-red-node-serialport \
-RUN npm install @js-on/node-red-contrib-py3run \
-                @wz2b/node-red-influxdb-line-protocol \
-                node-red-node-smooth \
-                node-red-contrib-ads \
-                node-red-contrib-influxdb \
-                node-red-contrib-omron-fins \
-                node-red-contrib-pid \
-                node-red-contrib-python3-function \
-                node-red-contrib-tdengine \
-                node-red-dashboard \
-                node-red-node-pidcontrol 
 
 # Copy package.json to the WORKDIR so npm builds all
 # of your added nodes modules for Node-RED
-# COPY package.json .
-# RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
+COPY package.json .
+RUN npm install --unsafe-perm --no-update-notifier --no-fund --only=production
 
 # Copy _your_ Node-RED project files into place
 # NOTE: This will only work if you DO NOT later mount /data as an external volume.
@@ -30,11 +19,14 @@ RUN npm install @js-on/node-red-contrib-py3run \
 # COPY nodered-config/settings.js /data/.
 # COPY nodered-config/settings.js .
 # 个性化定制界面
-COPY nodered-config/icon.svg node_modules/@node-red/editor-client/public/icon.svg
-COPY nodered-config/icon.svg node_modules/@node-red/editor-client/public/red/images/icon.svg
-COPY nodered-config/icon.svg node_modules/@node-red/editor-client/public/red/images/node-red-256.svg
+COPY nodered-config/xywang.svg node_modules/@node-red/editor-client/public/icon.svg
+COPY nodered-config/xywang.svg node_modules/@node-red/editor-client/public/red/images/icon.svg
+COPY nodered-config/xywang.svg node_modules/@node-red/editor-client/public/red/images/node-red-256.svg
 COPY nodered-config/theme.js node_modules/@node-red/editor-api/lib/editor/theme.js
 
+COPY nodered-config/xywang.png node_modules/node-red-dashboard/dist/icon64x64.png
+COPY nodered-config/xywang.png node_modules/node-red-dashboard/dist/icon120x120.png
+COPY nodered-config/xywang.png node_modules/node-red-dashboard/dist/icon192x192.png
 
 
 # 默认的文件
