@@ -6,7 +6,7 @@ networks:
 
 volumes:
     influxdb-data:
-    nodered-data: nodered-data
+    nodered-data: 
     grafana-data:
     jupyterlab-data:
     homeassistant-data:
@@ -17,12 +17,13 @@ services:
     restart: always
     build: ./nodered
     # image: nodered/node-red:latest
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
-      - nodered-data:/data
-    #  - nodered-config/settings.js:/data/settings.js
+      - ./nodered/nodered-data:/data
     ports:
       - "1880:1880"
-    network_mode: "host"
+    #network_mode: "host"
     depends_on:
       - influxdb
       - mosquitto
@@ -34,7 +35,7 @@ services:
       - INFLUXDB_DB=default
     volumes:
       - 'influxdb-data:/var/lib/influxdb'
-    network_mode: "host"
+    #network_mode: "host"
     ports:
       - "8086:8086"
 
@@ -65,13 +66,13 @@ services:
     build: ./mosquitto
     #networks:
     #  - backend
-    network_mode: "host"
-    ports:
-      - "1883:1883"
-      - "1884:1884"
+#    network_mode: "host"
+#    ports:
+#      - "1883:1883"
+#      - "1884:1884"
 
-#  emqx:
-#      image: emqx:latest
+  emqx:
+      image: emqx/emqx:latest
 #      container_name: emqx
 #      environment:
 #      - "EMQX_NODE_NAME=emqx@node2.emqx.io"
@@ -86,6 +87,12 @@ services:
 #        emqx-bridge:
 #          aliases:
 #          - node2.emqx.io
+      ports:
+        - 1883:1883
+        - 8083:8083
+        - 8084:8084
+        - 8883:8883
+        - 18083:18083
       # volumes:
       #   - $PWD/emqx2_data:/opt/emqx/data
 

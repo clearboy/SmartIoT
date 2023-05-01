@@ -19,5 +19,8 @@
         "node-red-contrib-tdengine": "~0.0.2",
         "node-red-dashboard": "~3.4.0",
         "node-red-node-pidcontrol": "~0.0.4"
+    },
+    "scripts": {
+        "start": "node $NODE_OPTIONS node_modules/node-red/red.js $FLOWS"        
     }
 }
