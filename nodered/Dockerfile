@@ -25,6 +25,7 @@ RUN npm install ./nodered-storage --no-save
 # 个性化定制界面
 COPY nodered-config/xywang.svg node_modules/@node-red/editor-client/public/icon.svg
 COPY nodered-config/xywang.svg node_modules/@node-red/editor-client/public/red/images/icon.svg
+COPY nodered-config/xywang.svg node_modules/@node-red/editor-client/public/red/images/node-red.svg
 COPY nodered-config/xywang.svg node_modules/@node-red/editor-client/public/red/images/node-red-256.svg
 COPY nodered-config/theme.js node_modules/@node-red/editor-api/lib/editor/theme.js
 
