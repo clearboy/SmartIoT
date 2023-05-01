@@ -20,12 +20,15 @@ services:
     environment:
       - TZ=Asia/Shanghai
     volumes:
-      - ./nodered/nodered-data:/data
+      - d:/xywang/nodered-data:/data
+      - ./nodered/nodered-config/settings.js:/data/settings.js
+    # - d:/xywang/node-storage:/data
     ports:
       - "1880:1880"
     #network_mode: "host"
     depends_on:
       - influxdb
+      - emqx
       - mosquitto
 
   influxdb:

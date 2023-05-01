@@ -24,7 +24,7 @@ var defaultContext = {
     page: {
         //title: "Node-RED",
         //favicon: "favicon.ico",
-        title: "数字化智能控制优化设计",
+        title: "慧演智能数字化平台",
         favicon: "icon.svg",
         tabicon: {
             //icon: "red/images/node-red-icon-black.svg",
@@ -34,7 +34,7 @@ var defaultContext = {
         version: require(path.join(__dirname,"../../package.json")).version
     },
     header: {
-        title: "慧演智能控制平台̨",
+        title: "慧演智能 控制优化设计",
         image: "red/images/icon.svg"
     },
     asset: {

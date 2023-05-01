@@ -395,7 +395,7 @@ module.exports = {
              * added to the end of the palette.
              * If not set, the following default order is used:
              */
-            categories: ['Digitization', 'ï®µç³ØÉú²úÉè±¸','ï®µç³Ø/Í¿²¼»ú','ï®µç³Ø/¾íÈÆ»ú','sequence', 'subflows', 'common', 'function', 'network', 'parser', 'storage']
+            categories: ['Digitization', 'ï®µé”‚ç”µç”Ÿäº§è®¾å¤‡','ï®µé”‚ç”µ/æ¶‚å¸ƒæœº','ï®µé”‚ç”µ/å·ç»•æœº','sequence', 'subflows', 'common', 'function', 'network', 'parser', 'storage']
         },
 
         projects: {
