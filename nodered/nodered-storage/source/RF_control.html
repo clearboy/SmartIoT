@@ -1,0 +1,52 @@
+<script type="text/javascript">
+    RED.nodes.registerType('卷绕机：工艺优化策略',{ // 节点的类型必须和上面注册的类型匹配 RED.nodes.registerType
+        category: '锂电池生产设备',          // 节点分组的类别
+        color: '#7FE703',                 // 使用的背景颜色
+        defaults: {
+            name: {value:"卷绕机 工艺优化策略"},
+            user: {value:"ME工程师"}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "icons/算法.png",           // 要使用的图标
+        label: function() {             // 工作空间中要使用的标签
+            return this.name||"卷绕机 工艺优化策略";
+        }
+/*        ,
+        oneditprepare: function () {
+            // 创建tab
+            var tabs = RED.tabs.create({
+                id: "node-input-tabs",  <!--绑定tab位置-->
+                onchange: function (tab) { <!--菜单的内容-->
+                    $("#node-input--tabs-content").children().hide();
+                    $("#" + tab.id).show();
+                }
+            });
+
+            tabs.addTab({
+                id: "database-query",
+                label: "SQL query"
+            });
+            tabs.addTab({    <!--添加菜单-->
+                id: "database-content",  <!--绑定的div id-->
+                label: "connection"            <!--菜单名称-->
+            });
+        }*/
+    });
+</script>
+
+<!--date-template-name   编辑模板，用户定义节点的编辑对话框内容，值对节点类型进行绑定 和上面的registerType 中类型进行匹配-->
+<script type="text/html" data-template-name="卷绕机：工艺优化策略">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label> <!--node-input 后面的名字和defaults 中的名字相同-->
+        <input type="text" id="node-input-name" placeholder="Name"> <!--id 值和for 中的值相同-->
+    </div>
+    <div class="form-row">
+        <label for="node-input-user"><i class="fa fa-tag"></i> User</label>
+        <input type="text" id="node-input-user" placeholder="User">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="卷绕机：工艺优化策略"> <!--对应的帮助文档-->
+    <p>锂电池生产设备，卷绕机。从Beckhoff的PLC读取设备的数据。</p>
+</script>

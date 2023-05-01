@@ -1,0 +1,33 @@
+{
+  "name": "@xywang/storage",
+  "version": "0.1.0",
+  "description": "锂电池生产工艺数字化，卷绕机",
+  "keywords": [
+    "node-red",
+    "王晓钰",
+    "锂电池",
+    "新能源",
+    "卷绕机",
+    "涂布机"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "source/RF_read.js",
+  "node-red": {
+    "version": ">=2.0.0",
+    "nodes": {
+      "storage_RF_read": "source/RF_read.js",
+      "storage_RF_write": "source/RF_write.js",
+      "storage_RF_control": "source/RF_control.js",
+      "storage_Coating.js": "source/Coating.js",
+      "storage_Coating_贴胶机": "source/Coating_贴胶机.js"
+    }
+  },
+  "author": {
+    "name": "王晓钰",
+    "email": "xywang@xywang.org"
+  },
+  "homepage": "http://ai.xywang.org",
+  "license": "MIT"
+}
