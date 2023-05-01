@@ -1,2 +1,5 @@
 # balena files
 .balena
+.git
+.github
+nodered/nodered-data/*
