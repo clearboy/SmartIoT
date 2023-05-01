@@ -1,0 +1,23 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "@js-on/node-red-contrib-py3run": "~1.0.0",
+        "@wz2b/node-red-influxdb-line-protocol": "~0.2.0",
+        "node-red-contrib-ads": "~1.1.31",
+        "node-red-contrib-automation-controller": "~1.1.4",
+        "node-red-contrib-browser-utils": "~0.0.11",
+        "node-red-contrib-iiot-opcua": "~4.1.2",
+        "node-red-contrib-influxdb": "~0.6.1",
+        "node-red-contrib-modbus": "~5.25.0",
+        "node-red-contrib-omron-fins": "~0.5.0",
+        "node-red-contrib-pid": "~1.1.7",
+        "node-red-contrib-python3-function": "~0.0.4",
+        "node-red-contrib-s7": "~3.1.0",
+        "node-red-contrib-tdengine": "~0.0.2",
+        "node-red-dashboard": "~3.4.0",
+        "node-red-node-pidcontrol": "~0.0.4"
+    }
+}

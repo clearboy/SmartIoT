@@ -1,3 +1,9 @@
+# 慧演智能 SmartIoT边缘计算平台
+
+- xywang.org
+
+
+
 # MING (Mosquitto, InfluxDB, NodeRed, Grafana)
 
 MING is a containerised IoT sensor server stack in the traditions of LAMP.

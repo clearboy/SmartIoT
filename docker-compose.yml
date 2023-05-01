@@ -1,28 +1,52 @@
-version: '2'
+version: '3.0'
+
+networks:
+  frontend:
+  backend:
+
 volumes:
     influxdb-data:
-    nodered-data:
+    nodered-data: nodered-data
     grafana-data:
     jupyterlab-data:
     homeassistant-data:
     rhasspy-data:
+
 services:
   nodered:
     restart: always
     build: ./nodered
+    # image: nodered/node-red:latest
     volumes:
-      - 'nodered-data:/data'
+      - nodered-data:/data
+    #  - nodered-config/settings.js:/data/settings.js
     ports:
       - "1880:1880"
+    network_mode: "host"
+    depends_on:
+      - influxdb
+      - mosquitto
+
   influxdb:
     restart: always
     build: ./influxdb
     environment:
-      - INFLUXDB_DB=ming_default
+      - INFLUXDB_DB=default
     volumes:
       - 'influxdb-data:/var/lib/influxdb'
+    network_mode: "host"
     ports:
       - "8086:8086"
+
+#  tdengine:
+#    restart: always
+#    image: tdengine/tdengine
+#    ports:
+#      - 6020:6020
+#      - 6030:6030
+#      - 6035:6035
+#      - 6030-6039:6030-6039/udp
+
   grafana:
     restart: always
     build: ./grafana
@@ -35,19 +59,43 @@ services:
       - 'grafana-data:/var/lib/grafana'
     depends_on:
       - influxdb
+
   mosquitto:
     restart: always
     build: ./mosquitto
+    #networks:
+    #  - backend
+    network_mode: "host"
     ports:
       - "1883:1883"
       - "1884:1884"
-  jupyterlab:
-    restart: always
-    build: ./jupyterlab
-    ports:
-      - "8888:8888"
-    volumes:
-      - 'jupyterlab-data:/data'
+
+#  emqx:
+#      image: emqx:latest
+#      container_name: emqx
+#      environment:
+#      - "EMQX_NODE_NAME=emqx@node2.emqx.io"
+#      - "EMQX_CLUSTER__DISCOVERY_STRATEGY=static"
+#      - "EMQX_CLUSTER__STATIC__SEEDS=[emqx@node1.emqx.io,emqx@node2.emqx.io]"
+#      healthcheck:
+#        test: ["CMD", "/opt/emqx/bin/emqx_ctl", "status"]
+#        interval: 5s
+#        timeout: 25s
+#        retries: 5
+#      networks:
+#        emqx-bridge:
+#          aliases:
+#          - node2.emqx.io
+      # volumes:
+      #   - $PWD/emqx2_data:/opt/emqx/data
+
+#  jupyterlab:
+#    restart: always
+#    build: ./jupyterlab
+#    ports:
+#      - "8888:8888"
+#    volumes:
+#      - 'jupyterlab-data:/data'
 #  homeassistant:
 #    restart: always
 #    build: ./homeassistant
