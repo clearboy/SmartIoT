@@ -1,4 +1,4 @@
-version: '3.0'
+version: '1.0' #1.0 @2023年5月1日19:33:34
 
 networks:
   frontend:
