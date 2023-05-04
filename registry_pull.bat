@@ -11,3 +11,4 @@ docker pull %ip_addr%:5000/smartiot-influxdb:latest
 docker pull %ip_addr%:5000/emqx/emqx:latest
 
 
+REM docker compose -f "docker-compose.yml" up -d --build
