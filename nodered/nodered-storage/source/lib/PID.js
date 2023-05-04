@@ -26,8 +26,6 @@ var Controller_PID = function(kp, ki, kd, rampRate, MaxLimit, MinLimit) {
 
   this.commandSet = 0; // default value, can be modified with .setTarget
   this.command    = 0;
-  console.log("ki:" + ki);
-  console.log("MaxLimit:" + MaxLimit);
 };
 
 Controller_PID.prototype.setCommand = function(cmd) {
