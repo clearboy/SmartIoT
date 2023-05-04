@@ -11,7 +11,15 @@
     "涂布机"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "make test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "should": "",
+    "mocha": ""
+  },
+  "directories": {
+    "test": "test"
   },
   "main": "source/RF_read.js",
   "node-red": {
@@ -21,8 +29,14 @@
       "storage_RF_write": "source/RF_write.js",
       "storage_RF_control": "source/RF_control.js",
       "storage_Coating.js": "source/Coating.js",
-      "storage_Coating_贴胶机": "source/Coating_贴胶机.js"
+      "storage_Coating_贴胶机": "source/Coating_贴胶机.js",
+      "storage_Control_Filter": "source/Control_Filter.js",
+      "storage_Control_PID": "source/Control_PID.js"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clearboy/"
   },
   "author": {
     "name": "王晓钰",

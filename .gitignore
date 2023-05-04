@@ -3,3 +3,4 @@
 .git
 .github
 nodered/nodered-data/*
+nodered/nodered-storage/node_modules

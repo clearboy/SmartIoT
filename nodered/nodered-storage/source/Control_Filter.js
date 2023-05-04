@@ -1,6 +1,6 @@
 module.exports = function(RED) { // RED  可以对node-red 进行访问
     "use strict";
-    function RF_control(config) {
+    function Control_Filter(config) {
         RED.nodes.createNode(this,config); // 节点本身就会对调用该函数，包括节点输入的属性
         var node = this;
         node.name = config.name;
@@ -20,5 +20,5 @@ module.exports = function(RED) { // RED  可以对node-red 进行访问
             else { node.warn("Non numeric input"); }
         });
     }
-    RED.nodes.registerType("卷绕机：工艺优化策略",RF_control);
+    RED.nodes.registerType("反馈滤波器",Control_Filter);
 }

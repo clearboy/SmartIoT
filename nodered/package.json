@@ -31,6 +31,8 @@
         "node-red-contrib-state": "^1.6.1",
         "node-red-contrib-state-machine": "^1.2.0",
         "node-red-contrib-xstate-machine": "^1.2.4",
+        "node-red-contrib-uibuilder": "^6.4.1",
+        "node-red-node-random": "^0.4.1",
         "node-red-node-smooth": "^0.1.2"
     },
     "scripts": {
