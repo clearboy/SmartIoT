@@ -7,49 +7,45 @@ module.exports = function(RED) { // RED  可以对node-red 进行访问
         var node = this;
         this.name = config.name;
         this.user = config.user;
-
-        this.target = config.target;
-        this.ramprate = config.ramprate;
-        this.intMaxLimit = config.intMaxLimit;
-        this.intMinLimit = config.intMinLimit;
+/*
+// 这段不是必要的。
+        this.command = config.command;
+        this.rampRate = config.rampRate;
+        this.MaxLimit = config.MaxLimit;
+        this.MinLimit = config.MinLimit;
         this.kp = config.kp;
         this.ki = config.ki;
         this.kd = config.kd;
+*/
+        this.bandWidth = Number(config.bandWidth);
 
-        this.controller = new Controller_PID(this.kp, this.ki, this.kd, this.ramprate, this.intMaxLimit, this.intMinLimit);
-        this.controller.setTarget(this.target);
-        this.status({fill:"blue",shape:"dot",text:"set point:"+this.target});
+        this.controller = new Controller_PID(config.kp, config.ki, config.kd, config.rampRate, config.MaxLimit, config.MinLimit);
+        this.controller.setCommand(config.command);
+        this.status({fill:"blue",shape:"dot",text:"set point:"+config.command});
 
-        var tgt = this.target;
-
-        this.accum = 0;
-
+        var cmd = Number(config.command);
 
         this.on('input', function(msg) {
             if(msg.hasOwnProperty("setpoint")) {
-                tgt = Number(msg.setpoint);
-                this.controller.setTarget(tgt);
-                this.status({fill:"blue",shape:"dot",text:"set point:"+tgt});
+                cmd = Number(msg.setpoint);
+                this.controller.setCommand(cmd);
+                this.status({fill:"blue",shape:"dot",text:"set point:"+cmd});
             }
             else if (!isNaN(msg.payload)) {
                 //this.accum = this.accum + msg.payload * this.ki;
                 //msg.payload = this.accum ;
-                msg.payload = this.controller.update(Number(msg.payload));
+                msg.payload = Number(this.controller.update(Number(msg.payload)));
                 msg.topic = "PID";
-                msg.parameter = {
-                  "K_p": this.K_p,
-                  "K_i": this.K_i,
-                  "K_d": this.K_d,
-                  "ramprate": this.ramprate,
-                  "intMaxLimit": this.intMaxLimit
-                };
+                msg.parameters = this.controller.getParameters();
                 this.send(msg);
             }
             else { this.warn("Non numeric input"); }
 
             // 积分器饱和的提示
             if (this.controller.sat)
-                this.status({fill:"yellow",shape:"dot",text:"set point:"+tgt});
+                this.status({fill:"yellow",shape:"dot",text:"set point:"+this.controller.command});
+            else
+                this.status({fill:"blue",shape:"dot",text:"set point:"+this.controller.command});
         });
     }
     RED.nodes.registerType("智能控制PID",Control_PID);

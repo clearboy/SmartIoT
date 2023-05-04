@@ -5,10 +5,10 @@
         defaults: {
             name: {value:""},
             user: {value:""},
-            target: {value:"0.0",required:true,validate:RED.validators.number()},
-            ramprate: {value:"10000",required:false,validate:RED.validators.number()},
-            intMax: {value:"100",required:true,validate:RED.validators.number()},
-            intMin: {value:"-100",required:true,validate:RED.validators.number()},
+            command: {value:"0.0",required:true,validate:RED.validators.number()},
+            rampRate: {value:"10000",required:false,validate:RED.validators.number()},
+            MaxLimit: {value:"100",required:true,validate:RED.validators.number()},
+            MinLimit: {value:"-100",required:false,validate:RED.validators.number()},
             kp: {value:"1",required:true,validate:RED.validators.number()},
             ki: {value:"1",required:true,validate:RED.validators.number()},
             kd: {value:"0",required:true,validate:RED.validators.number()}
@@ -48,40 +48,46 @@
 <!--date-template-name   编辑模板，用户定义节点的编辑对话框内容，值对节点类型进行绑定 和上面的registerType 中类型进行匹配-->
 <script type="text/html" data-template-name="智能控制PID">
     <div class="form-row">
+        <label for="node-input-command" style="width:120px;"><i class="fa fa-dot-circle-o"></i>控制指令</label>
+        <input type="text" id="node-input-command" placeholder="目标值" style="width:60%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-rampRate" style="width:120px;"><i class="fa-regular fa-stairs"></i>指令渐变斜率</label>
+        <input type="text" id="node-input-rampRate" placeholder="指令渐变斜率 Ramp Rate" style="width:60%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-kp" style="width:120px;"><font size=+1>K<sub>p</sub></font></label>
+        <input type="text" id="node-input-kp" placeholder="proportional gain constant - Kp" style="width:60%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ki" style="width:120px;"><font size=+1>K<sub>i</sub></font></label>
+        <input type="text" id="node-input-ki" placeholder="integral gain constant - Ki" style="width:60%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-kd" style="width:120px;"><font size=+1>K<sub>d</sub></font></label>
+        <input type="text" id="node-input-kd" placeholder="differential gain constant - Kd" style="width:60%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-bandwidth" style="width:120px;"><i class="fa fa-dot-circle-o"></i>控制带宽</label>
+        <input type="text" id="node-input-bandwidth" placeholder="控制带宽" style="width:60%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-MaxLimit" style="width:120px;">控制上限幅值</label>
+        <input type="text" id="node-input-MaxLimit" placeholder="控制上限幅值(100)" style="width:60%;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-MinLimit" style="width:120px;">控制下限幅值</label>
+        <input type="text" id="node-input-MinLimit" placeholder="控制下限幅值(-100)" style="width:60%;">
+    </div>
+
+    <!--记录修改参数的工艺人员 -->
+    <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label> <!--node-input 后面的名字和defaults 中的名字相同-->
         <input type="text" id="node-input-name" placeholder="Name"> <!--id 值和for 中的值相同-->
     </div>
     <div class="form-row">
-        <label for="node-input-user"><i class="fa fa-tag"></i> User</label>
+        <label for="node-input-user"><i class="fa fa-tag"></i> 参数修改人</label>
         <input type="text" id="node-input-user" placeholder="User">
-    </div>
-    <div class="form-row">
-        <label for="node-input-target" style="width:120px;"><i class="fa fa-dot-circle-o"></i>目标设定值</label>
-        <input type="text" id="node-input-target" placeholder="目标值" style="width:60%;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-ramprate" style="width:120px;"><i class="fa-regular fa-stairs"></i>跟踪速度</label>
-        <input type="text" id="node-input-ramprate" placeholder="跟踪速度Ramp Rate" style="width:60%;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-kp" style="width:120px;"><font size=+1>K<sub>proportional</sub></font></label>
-        <input type="text" id="node-input-kp" placeholder="proportional gain constant - Kp" style="width:60%;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-ki" style="width:120px;"><font size=+1>K<sub>integral</sub></font></label>
-        <input type="text" id="node-input-ki" placeholder="integral gain constant - Ki" style="width:60%;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-intMax" style="width:120px;">积分器上限幅值</label>
-        <input type="text" id="node-input-intMax" placeholder="积分器上限幅值(100)" style="width:60%;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-intMin" style="width:120px;">积分器下限幅值</label>
-        <input type="text" id="node-input-intMin" placeholder="积分器下限幅值(-100)" style="width:60%;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-kd" style="width:120px;"><font size=+1>K<sub>differential</sub></font></label>
-        <input type="text" id="node-input-kd" placeholder="differential gain constant - Kd" style="width:60%;">
     </div>
 </script>
 

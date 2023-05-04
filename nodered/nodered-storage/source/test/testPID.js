@@ -6,19 +6,19 @@ var Controller = require('../lib/PID.js')
   , should = require('should')
   , assert = require('assert')
   ;
-const Controller_PID = require("../lib/PID");
+const Controller_PID = require("../lib/PID.js");
 
 /**
  * Testspid_
  */
 describe('pid-controller', function(){
 
-  var k_p = 0.5
-    , k_i = 0.1
-    , k_d = 0.2
-      , rampRate =  0
-      , intMax = 2000
-      , intMin = -2000
+  var k_p = 0.5,
+      k_i = 0.1,
+      k_d = 0.2,
+      rampRate =  0,
+      intMax = 2000,
+      intMin = -2000
     ;
 
   // Create the controller
