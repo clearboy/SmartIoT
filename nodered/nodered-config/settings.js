@@ -395,7 +395,7 @@ module.exports = {
              * added to the end of the palette.
              * If not set, the following default order is used:
              */
-            categories: ['锂电生产设备','锂电/涂布机','锂电/卷绕机','dashboard','sequence', 'subflows', 'common', 'function', 'network', 'parser', 'storage']
+            categories: ['锂电生产设备','锂电：涂布','锂电：卷绕','锂电：智能控制', 'subflows','function','dashboard','input','output','sequence', 'common',  'network', 'parser', 'storage']
         },
 
         projects: {

@@ -3,6 +3,12 @@ node-storage-RF
 
 ## Overview
 
+
+## 安装
+
+> cd .node-red
+> npm install D:\Github\SmartIoT\nodered\nodered-storage  --no-save
+> 
 卷绕机
 
 
