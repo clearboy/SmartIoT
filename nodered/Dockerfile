@@ -20,7 +20,7 @@ RUN npm install ./nodered-storage --no-save
 #       If you need to use an external volume for persistence then
 #       copy your settings and flows files to that volume instead.
 # NodeRed的设置信息
-# COPY ./nodered-config/settings.js /data/.
+COPY ./nodered-config/settings.js /data/.
 COPY ./nodered-config/settings.js /usr/src/node-red/.
 
 # 个性化定制界面

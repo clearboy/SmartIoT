@@ -12,6 +12,8 @@ echo Will copy files to:
 echo %dirTarget%
 PAUSE
 
+COPY nodered-config\settings.js %dirTarget%\node_modules\node-red\.
+
 COPY nodered-config\xywang.svg %dirTarget%\node_modules\@node-red\editor-client\public\icon.svg
 COPY nodered-config\xywang.svg %dirTarget%\node_modules\@node-red\editor-client\public\red\images\icon.svg
 COPY nodered-config\xywang.svg %dirTarget%\node_modules\@node-red\editor-client\public\red\images\node-red.svg

@@ -75,12 +75,28 @@ module.exports = {
      */
     adminAuth: {
         type: "credentials",
-        users: [{
+        users: [
+        {
+            username: "qiangkun",
+            password: "$2b$08$zj6dWgyTgA7k938ztRt96uENbQHNx4Hm1Lj16CIkygpXbku5Ebem2",
+            permissions: "read"
+        },
+        {
+            username: "lucy",
+            password: "$2b$08$zj6dWgyTgA7k938ztRt96uENbQHNx4Hm1Lj16CIkygpXbku5Ebem2",
+            permissions: "read"
+        },
+        {
+            username: "wenqing",
+            password: "$2b$08$zj6dWgyTgA7k938ztRt96uENbQHNx4Hm1Lj16CIkygpXbku5Ebem2",
+            permissions: "read"
+        },
+        {
             username: "xywang",
             password: "$2b$08$ih0YtX0h7ATPCkL/Ktndde1WPK4XfT59Z07.ox6/kpvUHIDx.Nw3m",
             permissions: "*"
-        },
-        {
+        }
+        /*{
             username: "admin",
             password: "$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.",
             permissions: "*"
@@ -89,7 +105,8 @@ module.exports = {
             username: "guest",
             password: "$2b$08$DeqgkqR77IUMTv26.cbLUezAl26fWs0rR4g/HswX4ggHeEPG2BRj6",
             permissions: "read"
-        }]       
+        }*/
+        ]       
     },
 
     /** The following property can be used to enable HTTPS

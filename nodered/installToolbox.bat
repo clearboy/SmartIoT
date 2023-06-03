@@ -16,6 +16,8 @@ echo to:
 echo %dirTarget%
 PAUSE
 
+COPY nodered-config\settings.js %dirTarget%\.
+
 npm install %dirToolbox%\nodered-storage --no-save
 
 PAUSE
