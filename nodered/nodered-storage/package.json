@@ -31,7 +31,8 @@
       "storage_Coating.js": "source/Coating.js",
       "storage_Coating_贴胶机": "source/Coating_贴胶机.js",
       "storage_Control_Filter": "source/Control_Filter.js",
-      "storage_Control_PID": "source/Control_PID.js"
+      "storage_Control_PID": "source/Control_PID.js",
+      "storage_Coating_FeederControl": "source/Coating_FeederControl.js"
     }
   },
   "repository": {
