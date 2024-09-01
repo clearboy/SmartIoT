@@ -4,3 +4,10 @@
 .github
 nodered/nodered-data/*
 nodered/nodered-storage/node_modules
+
+
+
+
+# Release files
+*.zip
+*.rar
