@@ -133,6 +133,7 @@ services:
     #  - "host.docker.internal:host-gateway" 
     ports:
       - 1883:1883
+      - 2883:2883
       - 8083:8083
       - 8084:8084
       - 8883:8883
